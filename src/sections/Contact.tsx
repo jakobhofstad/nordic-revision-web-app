@@ -53,7 +53,7 @@ export function Contact() {
             />
             <ContactRow
               label="Besøk"
-              value="Oslo · møter også digitalt"
+              value="Trondheim · møter også digitalt"
               icon={
                 <Icon size={19} stroke="#BCB6E8">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />

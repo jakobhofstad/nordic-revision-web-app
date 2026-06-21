@@ -8,7 +8,7 @@ const PAGE_LINKS = [
   { label: 'Kontakt', id: SECTIONS.kontakt },
 ]
 
-const CONTACT_LINES = ['post@nordicrevisjon.no', '+47 22 00 00 00', 'Oslo, Norge']
+const CONTACT_LINES = ['post@nordicrevisjon.no', '+47 22 00 00 00', 'Trondheim, Norge']
 
 export function Footer({ go }: { go: (id: string) => () => void }) {
   return (
