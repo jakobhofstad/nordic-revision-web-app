@@ -1,5 +1,30 @@
 /* JetBrains Mono — used for the small monospace eyebrow/label text in the design */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+/* ============================================================
+   Nordic Revisjon — brand tokens (Tailwind v4 CSS-first theme)
+   Indigo #312783 · Warm grey #F3F3F2 · Volte typeface
+   ============================================================ */
+@theme {
+  --font-sans: 'Volte', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-indigo: #312783; /* primary brand */
+  --color-indigo-deep: #100d35; /* contact section background */
+  --color-indigo-tint: #eeedf9; /* icon chips, avatars */
+  --color-lilac: #9a91dc; /* mono accents on dark */
+  --color-lilac-soft: #bcb6e8; /* eyebrow on dark */
+  --color-warm-grey: #f3f3f2; /* page background */
+  --color-ink: #111010; /* primary text */
+  --color-ink-soft: #5e5d5a; /* body text */
+  --color-ink-muted: #444340; /* secondary body text */
+  --color-line: #e8e8e7; /* card / section borders */
+  --color-focus: #6d63ca; /* input focus border */
+  --color-field-line: #c9cedf; /* input border */
+
+  --shadow-card: 0 1px 3px rgba(17, 21, 35, 0.05);
+}
 
 /* ============================================================
    Nordic Revisjon — Volte brand typeface (regular 400, medium 500)
