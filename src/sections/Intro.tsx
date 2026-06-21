@@ -1,9 +1,9 @@
-import { CONTAINER } from '../theme/sections'
+import { Grid, Section } from '../components/layout'
 
 export function Intro() {
   return (
-    <section className="bg-warm-grey">
-      <div className={`${CONTAINER} grid grid-cols-2 items-start gap-20 px-8 py-26`}>
+    <Section tone="warm-grey" pad="py-16 md:py-24 lg:py-26">
+      <Grid cols={{ base: 1, lg: 2 }} gap="lg" className="items-start">
         <div>
           <div className="mb-4.5 font-mono text-[12px] uppercase tracking-[0.12em] text-indigo">
             Hvorfor Nordic Revisjon
@@ -22,7 +22,7 @@ export function Intro() {
             faktisk kan bruke i styrerommet.
           </p>
         </div>
-      </div>
-    </section>
+      </Grid>
+    </Section>
   )
 }

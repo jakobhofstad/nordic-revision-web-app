@@ -1,3 +1,4 @@
+import { Cluster, Decor } from '../components/layout'
 import { ArrowRight, CheckIcon } from '../components/icons'
 import { CONTAINER, SECTIONS } from '../theme/sections'
 
@@ -10,17 +11,14 @@ const CREDENTIALS = [
 export function Hero({ go }: { go: (id: string) => () => void }) {
   return (
     <section id="top" className="relative overflow-hidden bg-indigo text-white">
-      <img
-        src="/logos/symbol-white.svg"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[-120px] top-10 w-[720px] opacity-[0.06]"
-      />
+      <Decor>
+        <img src="/logos/symbol-white.svg" alt="" className="absolute right-[-120px] top-10 md:w-[720px] opacity-[0.06]" />
+      </Decor>
       <div
         className="absolute inset-0"
         style={{ background: 'radial-gradient(900px 520px at 78% 8%, rgba(110,99,202,0.30), transparent 70%)' }}
       />
-      <div className={`relative ${CONTAINER} px-8 pb-26 pt-46`}>
+      <div className={`relative ${CONTAINER} pb-16 pt-32 md:pb-26 md:pt-46`}>
         <div className="max-w-[760px]">
           <div className="mb-7 inline-flex items-center gap-2.5 font-mono text-[12px] uppercase tracking-[0.14em] text-lilac-soft">
             <span className="inline-block h-px w-[22px] bg-focus" />
@@ -39,7 +37,7 @@ export function Hero({ go }: { go: (id: string) => () => void }) {
             Lovpålagt revisjon for små og mellomstore bedrifter — levert med presisjon, nærhet og et blikk for det som
             faktisk skaper verdi i tallene dine.
           </p>
-          <div className="flex flex-wrap gap-3.5">
+          <Cluster gap="sm">
             <button
               onClick={go(SECTIONS.kontakt)}
               className="inline-flex cursor-pointer items-center gap-2.5 rounded-md bg-white px-[26px] py-3.5 font-sans text-[17px] font-medium text-indigo"
@@ -53,19 +51,21 @@ export function Hero({ go }: { go: (id: string) => () => void }) {
             >
               Se hva vi gjør
             </button>
-          </div>
+          </Cluster>
         </div>
       </div>
 
       {/* credentials strip */}
       <div className="relative border-t border-white/12">
-        <div className={`${CONTAINER} flex flex-wrap items-center gap-x-11 gap-y-3.5 px-8 py-5.5`}>
-          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/45">Tillit forankret i</span>
-          {CREDENTIALS.map((t) => (
-            <span key={t} className="inline-flex items-center gap-[9px] text-[14px] text-white/82">
-              <CheckIcon stroke="#9A91DC" /> {t}
-            </span>
-          ))}
+        <div className={`${CONTAINER} py-5.5`}>
+          <Cluster gap="lg">
+            <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/45">Tillit forankret i</span>
+            {CREDENTIALS.map((t) => (
+              <span key={t} className="inline-flex items-center gap-[9px] text-[14px] text-white/82">
+                <CheckIcon stroke="#9A91DC" /> {t}
+              </span>
+            ))}
+          </Cluster>
         </div>
       </div>
     </section>

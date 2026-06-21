@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { ContactRow } from '../components/ContactRow'
 import { Eyebrow } from '../components/Eyebrow'
 import { Field } from '../components/Field'
+import { Grid, Section, Stack } from '../components/layout'
 import { CheckIcon, Icon } from '../components/icons'
-import { CONTAINER, SECTIONS } from '../theme/sections'
+import { SECTIONS } from '../theme/sections'
 
 export function Contact() {
   const [navn, setNavn] = useState('')
@@ -18,8 +19,8 @@ export function Contact() {
   }
 
   return (
-    <section id={SECTIONS.kontakt} className="relative overflow-hidden bg-indigo-deep text-white">
-      <div className={`relative ${CONTAINER} grid grid-cols-2 items-start gap-20 px-8 py-28`}>
+    <Section id={SECTIONS.kontakt} tone="indigo-deep">
+      <Grid cols={{ base: 1, lg: 2 }} gap="lg" className="items-start">
         <div>
           <Eyebrow index="04" label="Kontakt" onDark />
           <h2 className="m-0 mb-5.5 text-[clamp(30px,3.4vw,44px)] font-medium leading-[1.1] tracking-[-0.02em] text-white [text-wrap:balance]">
@@ -30,7 +31,7 @@ export function Contact() {
             virkedag.
           </p>
 
-          <div className="flex flex-col gap-5.5">
+          <Stack gap="md">
             <ContactRow
               label="E-post"
               value="post@nordicrevisjon.no"
@@ -60,10 +61,10 @@ export function Contact() {
                 </Icon>
               }
             />
-          </div>
+          </Stack>
         </div>
 
-        <div className="rounded-xl bg-white p-9 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.25)]">
+        <div className="rounded-xl bg-white p-7 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.25)] md:p-9">
           {sent ? (
             <div className="flex flex-col items-start gap-4 py-6 text-ink">
               <div className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-indigo-tint">
@@ -99,7 +100,7 @@ export function Contact() {
             </form>
           )}
         </div>
-      </div>
-    </section>
+      </Grid>
+    </Section>
   )
 }

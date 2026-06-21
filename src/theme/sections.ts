@@ -6,5 +6,8 @@ export const SECTIONS = {
   kontakt: 'kontakt',
 } as const
 
-/* Reusable centered page container — mirrors the old `container` style object. */
-export const CONTAINER = 'mx-auto max-w-[1200px]'
+/* Reusable centered page container. Full-width down to mobile with
+   responsive horizontal padding folded in, so a section can never forget
+   its gutters. Used inside the <Section> primitive; prefer that over
+   reaching for this constant directly. */
+export const CONTAINER = 'mx-auto w-full max-w-[1200px] px-5 md:px-8'

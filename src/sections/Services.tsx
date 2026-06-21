@@ -1,22 +1,22 @@
 import { Eyebrow } from '../components/Eyebrow'
+import { Grid, Section } from '../components/layout'
 import { Icon } from '../components/icons'
 import { ServiceCard } from '../components/ServiceCard'
-import { CONTAINER, SECTIONS } from '../theme/sections'
+import { SECTIONS } from '../theme/sections'
 
 export function Services() {
   return (
-    <section id={SECTIONS.tjenester} className="border-t border-line bg-white">
-      <div className={`${CONTAINER} px-8 py-28`}>
-        <Eyebrow index="01" label="Tjenester" />
-        <h2 className="m-0 mb-4 max-w-[620px] text-[clamp(30px,3.6vw,44px)] font-medium leading-[1.1] tracking-[-0.02em]">
-          Lovpålagt revisjon, gjort grundig
-        </h2>
-        <p className="m-0 mb-14 max-w-[620px] text-[19px] leading-[1.6] text-ink-muted">
-          Vi tar hånd om hele den lovpålagte revisjonen — fra planlegging til revisjonsberetning — og dekker det som
-          betyr mest for selskapet ditt.
-        </p>
+    <Section id={SECTIONS.tjenester} tone="white" borderTop>
+      <Eyebrow index="01" label="Tjenester" />
+      <h2 className="m-0 mb-4 max-w-[620px] text-[clamp(30px,3.6vw,44px)] font-medium leading-[1.1] tracking-[-0.02em]">
+        Lovpålagt revisjon, gjort grundig
+      </h2>
+      <p className="m-0 mb-14 max-w-[620px] text-[19px] leading-[1.6] text-ink-muted">
+        Vi tar hånd om hele den lovpålagte revisjonen — fra planlegging til revisjonsberetning — og dekker det som
+        betyr mest for selskapet ditt.
+      </p>
 
-        <div className="grid grid-cols-2 gap-5">
+      <Grid cols={{ base: 1, md: 2 }} gap="sm">
           <ServiceCard
             title="Årsregnskap og noter"
             body="Vi reviderer årsregnskapet mot regnskapsloven og god regnskapsskikk, og sikrer at noter og opplysninger gir et riktig bilde."
@@ -61,8 +61,7 @@ export function Services() {
               </Icon>
             }
           />
-        </div>
-      </div>
-    </section>
+      </Grid>
+    </Section>
   )
 }
