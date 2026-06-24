@@ -25,7 +25,7 @@ export function About() {
         </div>
       </Grid>
 
-      <Grid cols={{ base: 1, md: 3 }} gap="md">
+      <Grid cols={{ base: 1, md: 3 }} gap="portraits">
         <TeamCard
           name="Astrid Lindqvist"
           role="Partner · Statsautorisert revisor"
