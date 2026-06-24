@@ -38,7 +38,7 @@ export const GRID_COLS_LG: Record<ColCount, string> = {
 
 /* Named gap scales. Responsive, so stacked content on mobile isn't
    crowded by the large desktop gaps. Literal strings stay JIT-safe. */
-export type GapToken = 'none' | 'sm' | 'md' | 'lg' | 'steps'
+export type GapToken = 'none' | 'sm' | 'md' | 'lg' | 'steps' | 'arch' | 'portraits' | 'timeline'
 
 export const GRID_GAP: Record<GapToken, string> = {
   none: 'gap-0',
@@ -46,6 +46,9 @@ export const GRID_GAP: Record<GapToken, string> = {
   md: 'gap-6',
   lg: 'gap-10 lg:gap-20', // two-column intro/contact: tight when stacked, airy at desktop
   steps: 'gap-y-10 lg:gap-y-0', // method timeline: spaced when stacked, flush at desktop
+  arch: 'gap-10 md:gap-[22px]', // services colonnade: roomy when stacked, snug arches at desktop
+  portraits: 'gap-10 md:gap-8', // about portraits: 3-up at desktop
+  timeline: 'gap-10 lg:gap-9', // method timeline nodes across the connecting line
 }
 
 /* Flex (Stack / Cluster) gaps. */

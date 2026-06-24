@@ -23,29 +23,33 @@ export function Method() {
         Slik jobber vi gjennom året
       </h2>
 
-      <Grid cols={{ base: 1, md: 2, lg: 4 }} gap="steps">
-        <MethodStep
-          num="01"
-          title="Bli kjent"
-          body="Vi setter oss inn i bransjen, driften og menneskene bak tallene før vi planlegger revisjonen."
-        />
-        <MethodStep
-          num="02"
-          title="Planlegging og risiko"
-          body="Vi identifiserer hvor risikoen er størst og retter innsatsen dit det betyr mest for regnskapet."
-        />
-        <MethodStep
-          num="03"
-          title="Gjennomføring"
-          body="Vi tester, kontrollerer og dokumenterer effektivt — og holder deg løpende oppdatert underveis."
-        />
-        <MethodStep
-          num="04"
-          title="Rapport og dialog"
-          body="Du får beretning, klare anbefalinger og en samtale om hva tallene betyr for veien videre."
-          last
-        />
-      </Grid>
+      {/* connected timeline: a single line runs behind the row of nodes at desktop */}
+      <div className="relative">
+        <div className="absolute left-[9px] right-[9px] top-2 hidden h-px bg-white/18 lg:block" />
+        <Grid cols={{ base: 1, md: 2, lg: 4 }} gap="timeline" className="relative">
+          <MethodStep
+            num="01"
+            title="Bli kjent"
+            body="Vi setter oss inn i bransjen, driften og menneskene bak tallene før vi planlegger revisjonen."
+          />
+          <MethodStep
+            num="02"
+            title="Planlegging og risiko"
+            body="Vi identifiserer hvor risikoen er størst og retter innsatsen dit det betyr mest for regnskapet."
+          />
+          <MethodStep
+            num="03"
+            title="Gjennomføring"
+            body="Vi tester, kontrollerer og dokumenterer effektivt, og holder deg løpende oppdatert underveis."
+          />
+          <MethodStep
+            num="04"
+            title="Rapport og dialog"
+            body="Du får beretning, klare anbefalinger og en samtale om hva tallene betyr for veien videre."
+            last
+          />
+        </Grid>
+      </div>
     </Section>
   )
 }
