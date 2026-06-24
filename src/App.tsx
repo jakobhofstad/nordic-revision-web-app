@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Header } from './sections/Header'
 import { Hero } from './sections/Hero'
+import { LogoIntro } from './sections/LogoIntro'
 import { Intro } from './sections/Intro'
 import { Services } from './sections/Services'
 import { Method } from './sections/Method'
@@ -16,6 +17,7 @@ import { Footer } from './sections/Footer'
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
+  const [intro, setIntro] = useState(true)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -36,6 +38,7 @@ export default function App() {
 
   return (
     <div className="bg-warm-grey font-sans text-ink antialiased">
+      {intro && <LogoIntro onDone={() => setIntro(false)} />}
       <Header scrolled={scrolled} go={go} goTop={goTop} />
       <Hero go={go} />
       <Intro />

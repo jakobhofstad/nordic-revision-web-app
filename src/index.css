@@ -71,3 +71,57 @@ body {
     transform: translateY(0);
   }
 }
+
+/* ============================================================
+   Logo intro (full-screen loading overlay). The brand mark draws
+   itself in: the body rises and wipes up, the floating dot drops
+   into place with a settle, then the wordmark wipes in left to right.
+   ============================================================ */
+@keyframes nrBody {
+  0% {
+    opacity: 0;
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(16px);
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes nrDot {
+  0% {
+    opacity: 0;
+    transform: translateY(-92px) scale(0.92);
+  }
+  30% {
+    opacity: 1;
+  }
+  68% {
+    transform: translateY(7px) scale(1.015);
+  }
+  84% {
+    transform: translateY(-2px) scale(0.998);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes nrWord {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
