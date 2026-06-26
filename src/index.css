@@ -61,6 +61,27 @@ body {
   box-sizing: border-box;
 }
 
+/* ============================================================
+   Glassmorphism surfaces. Translucent white with a backdrop blur and
+   a faint indigo hairline. Used by the header nav, the hero highlight
+   card and the intro splash so the brand purple reads softly through.
+   Kept as component classes because backdrop-filter does not compose
+   cleanly from utilities across the WebKit prefix.
+   ============================================================ */
+.glass-nav {
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(49, 39, 131, 0.08);
+}
+
+.glass-panel {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(49, 39, 131, 0.1);
+}
+
 @keyframes nr-rise {
   from {
     opacity: 0;

@@ -6,17 +6,12 @@ import { MobileNav } from './MobileNav'
 
 export function Header({ scrolled, go, goTop }: { scrolled: boolean; go: (id: string) => () => void; goTop: () => void }) {
   const [menuOpen, setMenuOpen] = useState(false)
-  const navColor = scrolled ? '#444340' : 'rgba(255,255,255,0.88)'
-  const ctaBg = scrolled ? '#312783' : 'rgba(255,255,255,0.10)'
-  const ctaBorder = scrolled ? '#312783' : 'rgba(255,255,255,0.30)'
-  // The hamburger sits over both header states; pick a glyph colour that reads on each.
-  const toggleColor = scrolled ? '#312783' : '#ffffff'
 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[200] transition-[background,box-shadow] duration-200 ${
-          scrolled ? 'bg-white/92 shadow-[0_1px_3px_rgba(17,21,35,0.10)]' : 'bg-transparent shadow-none'
+        className={`glass-nav fixed inset-x-0 top-0 z-[200] transition-shadow duration-200 ${
+          scrolled ? 'shadow-[0_1px_3px_rgba(17,21,35,0.08)]' : 'shadow-none'
         }`}
       >
         <div className={`${CONTAINER} flex h-19 items-center justify-between`}>
@@ -27,32 +22,19 @@ export function Header({ scrolled, go, goTop }: { scrolled: boolean; go: (id: st
               setMenuOpen(false)
               goTop()
             }}
-            className="relative inline-flex h-[21px] items-center no-underline"
+            className="inline-flex items-center no-underline"
           >
-            <img
-              src="/logos/wordmark-white.svg"
-              alt="Nordic Revisjon"
-              className={`block h-[19px] transition-opacity duration-200 ${scrolled ? 'opacity-0' : 'opacity-100'}`}
-            />
-            <img
-              src="/logos/wordmark-indigo.svg"
-              alt=""
-              aria-hidden="true"
-              className={`absolute left-0 top-px block h-[19px] transition-opacity duration-200 ${
-                scrolled ? 'opacity-100' : 'opacity-0'
-              }`}
-            />
+            <img src="/logos/lockup-indigo.svg" alt="Nordic Revisjon" className="block h-7 w-auto md:h-8" />
           </a>
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-1 lg:flex">
-            <NavButton label="Tjenester" color={navColor} onClick={go(SECTIONS.tjenester)} />
-            <NavButton label="Metode" color={navColor} onClick={go(SECTIONS.metode)} />
-            <NavButton label="Om oss" color={navColor} onClick={go(SECTIONS.omOss)} />
+            <NavButton label="Tjenester" color="#444340" onClick={go(SECTIONS.tjenester)} />
+            <NavButton label="Metode" color="#444340" onClick={go(SECTIONS.metode)} />
+            <NavButton label="Om oss" color="#444340" onClick={go(SECTIONS.omOss)} />
             <button
               onClick={go(SECTIONS.kontakt)}
-              className="ml-3 cursor-pointer rounded-md border px-[18px] py-[9px] font-sans text-[15px] font-medium text-white"
-              style={{ background: ctaBg, borderColor: ctaBorder }}
+              className="ml-3 cursor-pointer rounded-md bg-indigo px-[18px] py-[9px] font-sans text-[15px] font-medium text-white transition-transform duration-200 hover:-translate-y-0.5"
             >
               Book et møte
             </button>
@@ -63,8 +45,7 @@ export function Header({ scrolled, go, goTop }: { scrolled: boolean; go: (id: st
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? 'Lukk meny' : 'Åpne meny'}
             aria-expanded={menuOpen}
-            className="relative z-[210] -mr-2 cursor-pointer p-2 lg:hidden"
-            style={{ color: menuOpen ? '#312783' : toggleColor }}
+            className="relative z-[210] -mr-2 cursor-pointer p-2 text-indigo lg:hidden"
           >
             <Icon size={26} stroke="currentColor" strokeWidth={1.9}>
               {menuOpen ? (

@@ -9,14 +9,14 @@ import { useEffect, useState } from 'react'
    it and reveal the page underneath.
 
    Animation timeline (see @keyframes in index.css):
-     body    0.85s @ 0.30s
-     dot     0.92s @ 1.00s
-     wordmark 0.8s @ 1.70s  (ends ~2.5s)
+     body    0.6s @ 0.12s
+     dot     0.55s @ 0.55s
+     wordmark 0.5s @ 0.95s  (ends ~1.45s)
    We hold briefly, then fade. prefers-reduced-motion skips the choreography
    and shows the static mark for a short beat instead.
    ============================================================ */
 
-const FILL = '#F3F3F2' // warm grey mark on the indigo backdrop
+const FILL = '#312783' // indigo mark inside the light glass splash
 
 // Body path with the floating dot punched out, so the dot can animate on its own.
 const MARK_BODY =
@@ -33,9 +33,9 @@ export function LogoIntro({ onDone }: { onDone: () => void }) {
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
-    const fadeAt = reduced ? 650 : 2600
+    const fadeAt = reduced ? 500 : 1450
     const fade = setTimeout(() => setHiding(true), fadeAt)
-    const done = setTimeout(onDone, fadeAt + 600)
+    const done = setTimeout(onDone, fadeAt + 500)
 
     return () => {
       clearTimeout(fade)
@@ -47,17 +47,23 @@ export function LogoIntro({ onDone }: { onDone: () => void }) {
   return (
     <div
       aria-hidden="true"
-      className={`fixed inset-0 z-[1000] flex items-center justify-center bg-indigo transition-opacity duration-[600ms] ease-out ${
+      className={`fixed inset-0 z-[1000] flex items-center justify-center overflow-hidden bg-warm-grey transition-opacity duration-[500ms] ease-out ${
         hiding ? 'pointer-events-none opacity-0' : 'opacity-100'
       }`}
     >
-      <div className="flex flex-col items-center gap-[34px]">
+      {/* Same soft purple wash as the hero, blurred through the glass card. */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute right-0 top-0 h-3/4 w-3/4 -translate-y-1/4 translate-x-1/4 rounded-full bg-lilac/35 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 h-1/2 w-1/2 -translate-x-1/4 translate-y-1/4 rounded-full bg-indigo-tint blur-[80px]" />
+      </div>
+
+      <div className="glass-panel relative flex flex-col items-center gap-[clamp(26px,5vw,34px)] rounded-[20px] px-[clamp(40px,9vw,76px)] py-[clamp(38px,7vw,58px)] shadow-card">
         {/* Brand symbol: body + floating dot, layered so each animates independently. */}
-        <div className="relative h-[150px] w-[195.7px]">
+        <div className="relative h-[clamp(96px,22vw,140px)] w-[clamp(125px,29vw,182.6px)]">
           <svg
             viewBox="0 0 109.39 83.85"
             className="absolute inset-0 h-full w-full overflow-visible"
-            style={{ fill: FILL, animation: reduced ? undefined : 'nrBody 0.85s cubic-bezier(.2,.7,.25,1) 0.3s both' }}
+            style={{ fill: FILL, animation: reduced ? undefined : 'nrBody 0.6s cubic-bezier(.2,.7,.25,1) 0.12s both' }}
           >
             <defs>
               <mask id="nrNoDot">
@@ -73,7 +79,7 @@ export function LogoIntro({ onDone }: { onDone: () => void }) {
             style={{
               fill: FILL,
               transformOrigin: '84.5% 17.5%',
-              animation: reduced ? undefined : 'nrDot 0.92s cubic-bezier(.4,0,.2,1) 1s both',
+              animation: reduced ? undefined : 'nrDot 0.55s cubic-bezier(.4,0,.2,1) 0.55s both',
             }}
           >
             <circle cx="94.74" cy="14.65" r="14.65" />
@@ -82,10 +88,10 @@ export function LogoIntro({ onDone }: { onDone: () => void }) {
 
         {/* Wordmark (reuses the shared brand asset). */}
         <img
-          src="/logos/wordmark-white.svg"
+          src="/logos/wordmark-indigo.svg"
           alt="Nordic Revisjon"
-          className="block h-auto w-[clamp(220px,72vw,340px)]"
-          style={{ animation: reduced ? undefined : 'nrWord 0.8s cubic-bezier(.2,.7,.25,1) 1.7s both' }}
+          className="block h-auto w-[clamp(200px,60vw,300px)]"
+          style={{ animation: reduced ? undefined : 'nrWord 0.5s cubic-bezier(.2,.7,.25,1) 0.95s both' }}
         />
       </div>
     </div>
