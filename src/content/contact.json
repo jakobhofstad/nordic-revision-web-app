@@ -1,15 +1,9 @@
 {
-  "eyebrow": "Kontakt",
-  "title": "La oss ta en uforpliktende prat",
-  "lead": "Fortell oss kort om selskapet ditt, så finner vi ut om vi passer sammen. Vi svarer normalt innen én virkedag.",
-  "visit": "Trondheim · møter også digitalt",
-  "form": {
-    "heading": "Send en henvendelse",
-    "status": "Svar innen én virkedag",
-    "topics": ["Lovpålagt revisjon", "Internkontroll", "Skatt og avgift", "Annet"],
-    "submit": "Send henvendelse",
-    "privacy": "Vi behandler henvendelsen din konfidensielt.",
-    "successTitle": "Takk for henvendelsen",
-    "successBody": "Vi har mottatt meldingen din og tar kontakt innen én virkedag."
-  }
+  "eyebrow": "TA KONTAKT I DAG",
+  "title": "Klar for en mer moderne revisjonspartner?",
+  "lead": "La oss ta en uforpliktende prat om virksomheten din og veien videre.",
+  "cta": "Book et møte",
+  "emailSubject": "Et uforpliktende møte med Nordic Revisjon",
+  "emailBody": "Hei!\n\nJeg ønsker en prat om revisjon og hvordan dere kan hjelpe virksomheten vår.\n\nVirksomhet:\nTidspunkt som passer:\n\nVennlig hilsen",
+  "note": "Send oss en e-post, så avtaler vi et tidspunkt."
 }
