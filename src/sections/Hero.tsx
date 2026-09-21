@@ -1,12 +1,9 @@
+import { Accent } from '../components/Accent'
 import { Cluster, Grid } from '../components/layout'
 import { ArrowRight, CheckIcon, Icon } from '../components/icons'
+import { glyph } from '../components/glyphs'
 import { CONTAINER, SECTIONS } from '../theme/sections'
-
-const CREDENTIALS = [
-  'Statsautoriserte revisorer',
-  'Registrert i Revisorregisteret',
-  'Medlem av Revisorforeningen',
-]
+import hero from '../content/hero.json'
 
 export function Hero({ go }: { go: (id: string) => () => void }) {
   return (
@@ -22,34 +19,34 @@ export function Hero({ go }: { go: (id: string) => () => void }) {
           <div>
             <div className="mb-7 inline-flex items-center gap-2.5 font-mono text-[12px] uppercase tracking-[0.14em] text-indigo">
               <span className="inline-block h-px w-[22px] bg-lilac" />
-              Autorisert revisjonsselskap
+              {hero.eyebrow}
             </div>
             <h1 className="m-0 mb-7 text-[clamp(44px,6.2vw,76px)] font-medium leading-none tracking-[-0.035em] text-indigo [text-wrap:balance]">
-              Verdiskaping
-              <br />
-              gjennom{' '}
-              <span className="relative whitespace-nowrap">
-                <span className="absolute inset-x-0 bottom-[0.07em] h-[0.13em] bg-lilac" />
-                <span className="relative">innsikt</span>
-              </span>
+              <Accent
+                text={hero.title}
+                word={hero.highlight}
+                render={(w) => (
+                  <span className="relative whitespace-nowrap">
+                    <span className="absolute inset-x-0 bottom-[0.07em] h-[0.13em] bg-lilac" />
+                    <span className="relative">{w}</span>
+                  </span>
+                )}
+              />
             </h1>
-            <p className="m-0 mb-10 max-w-[560px] text-[clamp(18px,2vw,21px)] leading-[1.6] text-ink-muted">
-              Lovpålagt revisjon for små og mellomstore bedrifter, levert med presisjon, nærhet og et blikk for det som
-              faktisk skaper verdi i tallene dine.
-            </p>
+            <p className="m-0 mb-10 max-w-[560px] text-[clamp(18px,2vw,21px)] leading-[1.6] text-ink-muted">{hero.lead}</p>
             <Cluster gap="sm">
               <button
                 onClick={go(SECTIONS.kontakt)}
                 className="inline-flex cursor-pointer items-center gap-2.5 rounded-md bg-indigo px-[26px] py-3.5 font-sans text-[17px] font-medium text-white transition-transform duration-200 hover:-translate-y-0.5"
               >
-                Book et møte
+                {hero.ctaPrimary}
                 <ArrowRight />
               </button>
               <button
                 onClick={go(SECTIONS.tjenester)}
                 className="glass-panel cursor-pointer rounded-md px-[26px] py-3.5 font-sans text-[17px] font-medium text-indigo transition-transform duration-200 hover:-translate-y-0.5"
               >
-                Se hva vi gjør
+                {hero.ctaSecondary}
               </button>
             </Cluster>
           </div>
@@ -59,17 +56,16 @@ export function Hero({ go }: { go: (id: string) => () => void }) {
             <div className="mb-8 flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-tint text-indigo">
                 <Icon size={24} stroke="#312783" strokeWidth={1.7}>
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <polyline points="9 12 11 14 15 10" />
+                  {glyph(hero.card.icon)}
                 </Icon>
               </div>
               <div>
-                <h2 className="m-0 text-[21px] font-medium tracking-[-0.01em] text-indigo">Trygghet i tall</h2>
-                <p className="m-0 font-mono text-[12px] uppercase tracking-[0.12em] text-ink-soft">Nordisk presisjon</p>
+                <h2 className="m-0 text-[21px] font-medium tracking-[-0.01em] text-indigo">{hero.card.title}</h2>
+                <p className="m-0 font-mono text-[12px] uppercase tracking-[0.12em] text-ink-soft">{hero.card.subtitle}</p>
               </div>
             </div>
             <ul className="m-0 flex list-none flex-col gap-5 p-0">
-              {CREDENTIALS.map((t) => (
+              {hero.card.items.map((t) => (
                 <li key={t} className="flex items-start gap-3.5">
                   <span className="mt-0.5 shrink-0">
                     <CheckIcon stroke="#312783" size={18} />

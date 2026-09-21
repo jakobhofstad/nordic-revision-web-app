@@ -1,0 +1,27 @@
+{
+  "eyebrow": "Tjenester",
+  "title": "Lovpålagt revisjon, gjort grundig",
+  "lead": "Vi tar hånd om hele den lovpålagte revisjonen, fra planlegging til revisjonsberetning, og dekker det som betyr mest for selskapet ditt.",
+  "items": [
+    {
+      "icon": "document",
+      "title": "Årsregnskap og noter",
+      "body": "Vi reviderer årsregnskapet mot regnskapsloven og god regnskapsskikk, og sikrer at noter og opplysninger gir et riktig bilde."
+    },
+    {
+      "icon": "shield",
+      "title": "Internkontroll og risiko",
+      "body": "Vi vurderer rutiner og kontroller, avdekker svakheter før de blir kostbare, og gir konkrete råd om hvordan de styrkes."
+    },
+    {
+      "icon": "percent",
+      "title": "Skatt og avgift",
+      "body": "Vi kontrollerer skatte- og avgiftsbehandlingen som en del av revisjonen, og fanger opp forhold som bør rettes eller dokumenteres."
+    },
+    {
+      "icon": "chart",
+      "title": "Rapportering til styret",
+      "body": "Du får en tydelig revisjonsberetning og et nummerert brev til styret med funn, anbefalinger og prioriteringer, uten fagsjargong."
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { SECTIONS } from '../theme/sections'
+import site from '../content/site.json'
 
 /* ============================================================
    MobileNav: slide-in drawer for < lg viewports.
@@ -10,9 +11,9 @@ import { SECTIONS } from '../theme/sections'
    ============================================================ */
 
 const LINKS = [
-  { label: 'Tjenester', id: SECTIONS.tjenester },
-  { label: 'Metode', id: SECTIONS.metode },
-  { label: 'Om oss', id: SECTIONS.omOss },
+  { label: site.nav.tjenester, id: SECTIONS.tjenester },
+  { label: site.nav.metode, id: SECTIONS.metode },
+  { label: site.nav.omOss, id: SECTIONS.omOss },
 ]
 
 export function MobileNav({
@@ -64,7 +65,7 @@ export function MobileNav({
           onClick={handle(SECTIONS.kontakt)}
           className="mt-4 cursor-pointer rounded-md bg-indigo px-5 py-3.5 text-center font-sans text-[17px] font-medium text-white"
         >
-          Book et møte
+          {site.nav.cta}
         </button>
       </nav>
     </div>
