@@ -28,3 +28,6 @@ dist-ssr
 
 # Archives
 *.zip
+
+# Local visual verification artifacts
+.local-review/

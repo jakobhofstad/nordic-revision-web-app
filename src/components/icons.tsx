@@ -6,6 +6,7 @@ type IconProps = { size?: number; stroke?: string; strokeWidth?: number; childre
 export function Icon({ size = 24, stroke = 'currentColor', strokeWidth = 1.75, children }: IconProps) {
   return (
     <svg
+      aria-hidden="true"
       width={size}
       height={size}
       viewBox="0 0 24 24"

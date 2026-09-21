@@ -1,4 +1,15 @@
 {
-  "tagline": "Verdiskaping gjennom innsikt. Lovpålagt revisjon for små og mellomstore bedrifter.",
-  "badge": "Registrert i Revisorregisteret"
+  "tagline": "Trygghet i tallene. Innsikt for veien videre.",
+  "contactLabel": "Kontakt oss",
+  "linksLabel": "Utforsk",
+  "socialLabel": "Følg oss",
+  "linkedinLabel": "LinkedIn",
+  "linkedinPlaceholder": "Profil kommer",
+  "copyright": "Alle rettigheter reservert.",
+  "privacyLabel": "Personvern",
+  "privacyTitle": "Personverninformasjon",
+  "privacyBody": "Fullstendig personvernerklæring kommer. Kontakt oss på e-post hvis du har spørsmål om behandling av personopplysninger. Unngå å sende sensitive opplysninger på vanlig e-post.",
+  "cookiesLabel": "Informasjonskapsler",
+  "cookiesTitle": "Informasjonskapsler",
+  "cookiesBody": "Denne nettsiden setter ikke informasjonskapsler for analyse eller markedsføring. Hvis dette endres, oppdaterer vi informasjonen her."
 }
