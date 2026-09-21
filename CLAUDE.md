@@ -35,13 +35,23 @@ Code is split into two layers:
 
 [src/theme/sections.ts](src/theme/sections.ts) holds the shared `SECTIONS` anchor-id constants (used by both nav links and section elements, so keep these in sync when adding sections) and the `CONTAINER` class string for the centered max-width page wrapper.
 
+## Content
+
+All editable copy lives in [src/content/](src/content/) as JSON, one file per section plus `site.json` for company details and nav labels. Sections import the JSON directly (`import hero from '../content/hero.json'`); there is no runtime fetch. Non-developers edit it through Pages CMS, configured in [.pages.yml](.pages.yml). Every save there is a commit to `main`, and Vercel redeploys.
+
+- Icons are referenced by key in the JSON (`"icon": "shield"`) and resolved by `glyph()` in [src/components/glyphs.tsx](src/components/glyphs.tsx). A new key goes in `GLYPHS` and in every `select` options list in `.pages.yml`. An unknown key falls back to `document` rather than crashing.
+- A heading's `highlight` field names one word inside `title` to accent. The `Accent` component renders it; if the word is not in the title, the text renders plain.
+- Images uploaded in the CMS land in `public/media/` and are referenced as `/media/<file>`. `TeamCard` shows its `photo` when set and the "Portrett" placeholder otherwise.
+- Adding a text field means touching both the JSON file and `.pages.yml`. `tsc` fails the build if code reads a field the JSON lacks.
+- Keep the ban on em dashes when writing copy into the JSON files.
+
 ## Styling
 
 Tailwind v4 is configured CSS-first, so there is **no `tailwind.config.js`**. All design tokens are declared in the `@theme` block of [src/index.css](src/index.css) and consumed as utility classes (e.g. `bg-warm-grey`, `text-ink-soft`, `text-indigo`, `font-mono`). When introducing a new brand color, spacing, or shadow, add it to `@theme` rather than hardcoding values.
 
 Brand: Indigo `#312783`, warm grey `#F3F3F2`, the custom **Volte** typeface (loaded via `@font-face` from `/public/fonts/`), and JetBrains Mono for eyebrow/label text. Icon SVGs are inline and use the indigo stroke directly. Some dynamic styles (header color transitions in `Header.tsx`) are applied via inline `style` rather than utility classes because they interpolate between states.
 
-Static assets (`fonts/`, `logos/`) live in `public/` and are referenced by absolute path (e.g. `/logos/wordmark-white.svg`).
+Static assets (`fonts/`, `logos/`, CMS uploads in `media/`) live in `public/` and are referenced by absolute path (e.g. `/logos/wordmark-white.svg`).
 
 ## Layout and responsiveness
 

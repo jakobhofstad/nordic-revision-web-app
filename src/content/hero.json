@@ -1,0 +1,18 @@
+{
+  "eyebrow": "Autorisert revisjonsselskap",
+  "title": "Verdiskaping gjennom innsikt",
+  "highlight": "innsikt",
+  "lead": "Lovpålagt revisjon for små og mellomstore bedrifter, levert med presisjon, nærhet og et blikk for det som faktisk skaper verdi i tallene dine.",
+  "ctaPrimary": "Book et møte",
+  "ctaSecondary": "Se hva vi gjør",
+  "card": {
+    "icon": "shield",
+    "title": "Trygghet i tall",
+    "subtitle": "Nordisk presisjon",
+    "items": [
+      "Statsautoriserte revisorer",
+      "Registrert i Revisorregisteret",
+      "Medlem av Revisorforeningen"
+    ]
+  }
+}

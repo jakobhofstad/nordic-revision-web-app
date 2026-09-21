@@ -3,6 +3,7 @@ import { NavButton } from '../components/NavButton'
 import { Icon } from '../components/icons'
 import { CONTAINER, SECTIONS } from '../theme/sections'
 import { MobileNav } from './MobileNav'
+import site from '../content/site.json'
 
 export function Header({ scrolled, go, goTop }: { scrolled: boolean; go: (id: string) => () => void; goTop: () => void }) {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -24,19 +25,19 @@ export function Header({ scrolled, go, goTop }: { scrolled: boolean; go: (id: st
             }}
             className="inline-flex items-center no-underline"
           >
-            <img src="/logos/lockup-indigo.svg" alt="Nordic Revisjon" className="block h-7 w-auto md:h-8" />
+            <img src="/logos/lockup-indigo.svg" alt={site.company} className="block h-7 w-auto md:h-8" />
           </a>
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-1 lg:flex">
-            <NavButton label="Tjenester" color="#444340" onClick={go(SECTIONS.tjenester)} />
-            <NavButton label="Metode" color="#444340" onClick={go(SECTIONS.metode)} />
-            <NavButton label="Om oss" color="#444340" onClick={go(SECTIONS.omOss)} />
+            <NavButton label={site.nav.tjenester} color="#444340" onClick={go(SECTIONS.tjenester)} />
+            <NavButton label={site.nav.metode} color="#444340" onClick={go(SECTIONS.metode)} />
+            <NavButton label={site.nav.omOss} color="#444340" onClick={go(SECTIONS.omOss)} />
             <button
               onClick={go(SECTIONS.kontakt)}
               className="ml-3 cursor-pointer rounded-md bg-indigo px-[18px] py-[9px] font-sans text-[15px] font-medium text-white transition-transform duration-200 hover:-translate-y-0.5"
             >
-              Book et møte
+              {site.nav.cta}
             </button>
           </nav>
 
