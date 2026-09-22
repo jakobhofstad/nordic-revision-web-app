@@ -7,22 +7,19 @@
   ],
   "team": [
     {
-      "name": "Astrid Lindqvist",
-      "role": "Partner · Statsautorisert revisor",
-      "body": "Leder revisjonen for selskaper i vekst og styrer kvaliteten i alle oppdrag.",
-      "photo": ""
+      "name": "Christopher Anthony",
+      "role": "Partner · Daglig leder · Statsautorisert revisor",
+      "body": "Leder revisjonen for selskaper i vekst og styrer kvaliteten i alle oppdrag."
     },
     {
-      "name": "Henrik Dahl",
-      "role": "Partner · Statsautorisert revisor",
-      "body": "Spesialist på internkontroll og risiko, med bakgrunn fra større revisjonshus.",
-      "photo": ""
+      "name": "Inge Stikholmen",
+      "role": "Partner · Revisor",
+      "body": "Spesialist på internkontroll og risiko, med bakgrunn fra større revisjonshus."
     },
     {
-      "name": "Mari Solberg",
-      "role": "Revisor",
-      "body": "Din daglige kontakt gjennom revisjonsåret og bindeledd inn i teamet.",
-      "photo": ""
+      "name": "Rune Dypaune",
+      "role": "Partner · Revisor",
+      "body": "Din daglige kontakt gjennom revisjonsåret og bindeledd inn i teamet."
     }
   ]
 }
