@@ -1,24 +1,9 @@
 {
-  "items": [
-    {
-      "icon": "people",
-      "title": "Tett oppfølging",
-      "body": "Mennesker som blir kjent med virksomheten din."
-    },
-    {
-      "icon": "document",
-      "title": "Tydelig prosess",
-      "body": "Oversikt og forutsigbarhet gjennom året."
-    },
-    {
-      "icon": "chart",
-      "title": "Effektiv samhandling",
-      "body": "Gode digitale verktøy. Mer tid til dialog."
-    },
-    {
-      "icon": "shield",
-      "title": "Fokus på kvalitet",
-      "body": "Grundighet i arbeidet. Trygghet i tallene."
-    }
+  "eyebrow": "Hvorfor Nordic Revisjon",
+  "title": "Revisjon skal være mer enn en formalitet.",
+  "highlight": "formalitet",
+  "paragraphs": [
+    "Vi er et moderne revisjonsselskap bygget for bedrifter som vil forstå tallene sine, ikke bare få dem godkjent. Hver revisjon gir deg trygghet for at regnskapet stemmer, og innsikt du kan handle på.",
+    "Du møter de samme menneskene gjennom hele året, snakker direkte med revisoren din, og får råd på et språk du faktisk kan bruke i styrerommet."
   ]
 }

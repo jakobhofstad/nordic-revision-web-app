@@ -1,15 +1,13 @@
 {
   "company": "Nordic Revisjon",
-  "legalName": "Nordic Revisjon",
-  "orgNr": "",
+  "legalName": "Nordic Revisjon AS",
+  "orgNr": "000 000 000",
   "email": "post@nordicrevisjon.no",
-  "phone": "",
-  "city": "",
-  "linkedin": "",
+  "phone": "+47 22 00 00 00",
+  "city": "Trondheim, Norge",
   "nav": {
     "tjenester": "Tjenester",
-    "bransjer": "Bransjer",
-    "metode": "Slik jobber vi",
+    "metode": "Metode",
     "omOss": "Om oss",
     "kontakt": "Kontakt",
     "cta": "Book et møte"

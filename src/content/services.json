@@ -1,37 +1,27 @@
 {
-  "eyebrow": "VÅRE TJENESTER",
-  "title": "Revisjon og rådgivning for en tryggere fremtid",
-  "lead": "Fra oversikt til innsikt. Vi hjelper deg å forstå tallene, se mulighetene og ta virksomheten videre.",
-  "linkLabel": "Finn riktig tjeneste",
+  "eyebrow": "Tjenester",
+  "title": "Lovpålagt revisjon, gjort grundig",
+  "lead": "Vi tar hånd om hele den lovpålagte revisjonen, fra planlegging til revisjonsberetning, og dekker det som betyr mest for selskapet ditt.",
   "items": [
     {
-      "title": "Lovpålagt revisjon",
-      "body": "Et solid grunnlag for tillit til regnskapet.",
-      "detail": "Vi går gjennom årsregnskapet, vurderer dokumentasjon og holder en tydelig dialog om funn og veien videre. Omfang og plan avklares sammen med deg.",
-      "image": "/media/office-meeting.jpg",
-      "imageAlt": "Moderne møterom med glassvegger"
+      "icon": "document",
+      "title": "Årsregnskap og noter",
+      "body": "Vi reviderer årsregnskapet mot regnskapsloven og god regnskapsskikk, og sikrer at noter og opplysninger gir et riktig bilde."
     },
     {
-      "title": "Rådgivning",
-      "body": "Gode perspektiver på viktige beslutninger.",
-      "detail": "Vi tar utgangspunkt i spørsmålene virksomheten står overfor. Sammen avklarer vi behovet og muligheten for rådgivning, innenfor kravene til vår uavhengighet.",
-      "image": "/media/collaboration.jpg",
-      "imageAlt": "Kollegaer som arbeider sammen ved en datamaskin"
+      "icon": "shield",
+      "title": "Internkontroll og risiko",
+      "body": "Vi vurderer rutiner og kontroller, avdekker svakheter før de blir kostbare, og gir konkrete råd om hvordan de styrkes."
     },
     {
-      "title": "Attestasjoner",
-      "body": "Uavhengig bekreftelse som skaper tillit.",
-      "detail": "Trenger du en uavhengig bekreftelse? Vi avklarer formålet, dokumentasjonen og hvilke krav som gjelder for den aktuelle attestasjonen.",
-      "image": "/media/writing.jpg",
-      "imageAlt": "Notater og penn på et arbeidsbord"
+      "icon": "percent",
+      "title": "Skatt og avgift",
+      "body": "Vi kontrollerer skatte- og avgiftsbehandlingen som en del av revisjonen, og fanger opp forhold som bør rettes eller dokumenteres."
     },
     {
-      "title": "Risikovurdering",
-      "body": "Se risikoen. Styrk virksomheten.",
-      "detail": "Vi ser på rutiner, kontroll og områder som trenger oppmerksomhet. Målet er et tydeligere beslutningsgrunnlag og konkrete prioriteringer.",
-      "image": "/media/mountains.jpg",
-      "imageAlt": "Markante fjelltopper i et nordisk landskap"
+      "icon": "chart",
+      "title": "Rapportering til styret",
+      "body": "Du får en tydelig revisjonsberetning og et nummerert brev til styret med funn, anbefalinger og prioriteringer, uten fagsjargong."
     }
-  ],
-  "moreLabel": "Les mer"
+  ]
 }

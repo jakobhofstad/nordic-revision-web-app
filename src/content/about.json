@@ -1,12 +1,28 @@
 {
-  "eyebrow": "OM NORDIC REVISJON",
-  "title": "Bygget for moderne virksomheter",
+  "eyebrow": "Om oss",
+  "title": "Et lite, dedikert revisjonsmiljø",
   "paragraphs": [
-    "God revisjon begynner med å forstå menneskene, ambisjonene og virksomheten bak tallene. Vi tror på tett dialog og råd som er lette å forstå.",
-    "Vi kombinerer faglig grundighet med moderne arbeidsmetoder. Slik får du en ryddig prosess og mer rom til å se fremover."
+    "Nordic Revisjon er bygget på en enkel idé: at god revisjon kommer fra nære relasjoner og ekte forståelse for virksomheten. Vi holder bevisst teamet lite, så du alltid vet hvem som har hånd om regnskapet ditt.",
+    "Vi kombinerer solid revisjonsfaglig håndverk med moderne verktøy, og en arbeidsmåte som er ryddig, forutsigbar og fri for unødvendig byråkrati."
   ],
-  "cta": "Bli kjent med oss",
-  "image": "/media/office-meeting.jpg",
-  "imageAlt": "Åpent, lyst kontormiljø med møterom og grønne planter",
-  "imageCaption": "Kunnskap skaper muligheter."
+  "team": [
+    {
+      "name": "Astrid Lindqvist",
+      "role": "Partner · Statsautorisert revisor",
+      "body": "Leder revisjonen for selskaper i vekst og styrer kvaliteten i alle oppdrag.",
+      "photo": ""
+    },
+    {
+      "name": "Henrik Dahl",
+      "role": "Partner · Statsautorisert revisor",
+      "body": "Spesialist på internkontroll og risiko, med bakgrunn fra større revisjonshus.",
+      "photo": ""
+    },
+    {
+      "name": "Mari Solberg",
+      "role": "Revisor",
+      "body": "Din daglige kontakt gjennom revisjonsåret og bindeledd inn i teamet.",
+      "photo": ""
+    }
+  ]
 }

@@ -62,4 +62,4 @@ export const FLEX_GAP: Record<FlexGapToken, string> = {
 }
 
 /* Section vertical rhythm: compact on phone, full at desktop. */
-export const SECTION_PAD = 'py-16 md:py-20 lg:py-24'
+export const SECTION_PAD = 'py-16 md:py-24 lg:py-28'

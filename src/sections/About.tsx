@@ -1,32 +1,32 @@
+import { Eyebrow } from '../components/Eyebrow'
 import { Grid, Section } from '../components/layout'
-import { ButtonLink } from '../components/ButtonLink'
+import { TeamCard } from '../components/TeamCard'
+import { SECTIONS } from '../theme/sections'
 import about from '../content/about.json'
+
 export function About() {
   return (
-    <Section id="om-oss" tone="warm-grey" pad="" className="about-section">
-      <Grid cols={{ base: 1, lg: 2 }} gap="none">
-        <div className="about-photo">
-          <img
-            className="about-image"
-            src={about.image}
-            alt={about.imageAlt}
-            loading="lazy"
-            width="1200"
-            height="800"
-          />
-          <div className="photo-signature">
-            <img src="/logos/symbol-white.svg" alt="" width="68" height="68" />
-            <span>{about.imageCaption}</span>
-          </div>
+    <Section id={SECTIONS.omOss} tone="warm-grey" borderTop>
+      <Grid cols={{ base: 1, lg: 2 }} gap="lg" className="mb-18 items-start">
+        <div>
+          <Eyebrow index="03" label={about.eyebrow} />
+          <h2 className="m-0 text-[clamp(30px,3.4vw,42px)] font-medium leading-[1.12] tracking-[-0.02em] [text-wrap:balance]">
+            {about.title}
+          </h2>
         </div>
-        <div className="about-copy">
-          <p className="eyebrow">{about.eyebrow}</p>
-          <h2>{about.title}</h2>
-          {about.paragraphs.map((p) => (
-            <p key={p}>{p}</p>
+        <div className="pt-1.5">
+          {about.paragraphs.map((p, i) => (
+            <p key={p} className={`m-0 text-[19px] leading-[1.65] text-ink-muted ${i < about.paragraphs.length - 1 ? 'mb-5' : ''}`}>
+              {p}
+            </p>
           ))}
-          <ButtonLink href="#kontakt">{about.cta}</ButtonLink>
         </div>
+      </Grid>
+
+      <Grid cols={{ base: 1, md: 3 }} gap="portraits">
+        {about.team.map((m) => (
+          <TeamCard key={m.name} name={m.name} role={m.role} body={m.body} photo={m.photo} />
+        ))}
       </Grid>
     </Section>
   )

@@ -1,338 +1,148 @@
-# Redigerbart innhold for Nordic Revisjon. Bilder lagres lokalt i public/media.
+# Pages CMS (https://pagescms.org) redaktørgrensesnitt for innholdet i src/content/.
+# Hver lagring blir en commit til GitHub, og Vercel bygger siden på nytt automatisk.
+# Ikonnøklene under "icon" må finnes i GLYPHS i src/components/icons.tsx.
+
+# Bilder lastes opp hit og refereres som /media/<fil> i innholdet.
 media:
   input: public/media
   output: /media
-  extensions:
-  - jpg
-  - jpeg
-  - png
-  - webp
+  extensions: [jpg, jpeg, png, webp]
+
 content:
-- name: site
-  label: Nettsted og kontaktinfo
-  type: file
-  path: src/content/site.json
-  format: json
-  fields:
-  - name: company
-    label: Firmanavn
-    type: string
-  - name: legalName
-    label: Juridisk navn
-    type: string
-  - name: orgNr
-    label: Organisasjonsnummer (valgfritt)
-    type: string
-  - name: email
-    label: E-post for kontakt og møtebooking
-    type: string
-  - name: phone
-    label: Telefon (valgfritt)
-    type: string
-  - name: city
-    label: Adresse eller sted (valgfritt)
-    type: string
-  - name: linkedin
-    label: LinkedIn profiladresse (valgfritt)
-    type: string
-    description: Full https-adresse. La feltet stå tomt til riktig profil er bekreftet.
-  - name: nav
-    label: Meny
-    type: object
+  - name: site
+    label: Nettsted og kontaktinfo
+    type: file
+    path: src/content/site.json
+    format: json
     fields:
-    - name: tjenester
-      label: Tjenester
-      type: string
-    - name: bransjer
-      label: Bransjer
-      type: string
-    - name: metode
-      label: Slik jobber vi
-      type: string
-    - name: omOss
-      label: Om oss
-      type: string
-    - name: kontakt
-      label: Kontakt
-      type: string
-    - name: cta
-      label: Knappetekst
-      type: string
-- name: hero
-  label: Toppseksjon
-  type: file
-  path: src/content/hero.json
-  format: json
-  fields:
-  - name: eyebrow
-    label: Liten overskrift
-    type: string
-  - name: title
-    label: Overskrift
-    type: string
-  - name: lead
-    label: Ingress
-    type: text
-  - name: ctaPrimary
-    label: Primærknapp
-    type: string
-  - name: ctaSecondary
-    label: Sekundærknapp
-    type: string
-  - name: image
-    label: Bilde
-    type: image
-  - name: imageAlt
-    label: Alternativ bildetekst
-    type: string
-    description: Beskriv motivet kort for personer som ikke kan se bildet.
-  - name: caption
-    label: Bildetekst
-    type: string
-- name: intro
-  label: Verdier under toppseksjonen
-  type: file
-  path: src/content/intro.json
-  format: json
-  fields:
-  - name: items
-    label: Elementer
-    type: object
-    list: true
+      - { name: company, label: Firmanavn, type: string }
+      - { name: legalName, label: Juridisk navn (bunntekst), type: string }
+      - { name: orgNr, label: Organisasjonsnummer, type: string }
+      - { name: email, label: E-post, type: string }
+      - { name: phone, label: Telefon, type: string }
+      - { name: city, label: Sted (bunntekst), type: string }
+      - name: nav
+        label: Meny
+        type: object
+        fields:
+          - { name: tjenester, label: Tjenester, type: string }
+          - { name: metode, label: Metode, type: string }
+          - { name: omOss, label: Om oss, type: string }
+          - { name: kontakt, label: Kontakt, type: string }
+          - { name: cta, label: Knapp i menyen, type: string }
+
+  - name: hero
+    label: Toppseksjon
+    type: file
+    path: src/content/hero.json
+    format: json
     fields:
-    - name: icon
-      label: Ikon
-      type: select
-      options:
-        values:
-        - people
-        - document
-        - shield
-        - percent
-        - chart
-        - mail
-        - phone
-        - pin
-    - name: title
-      label: Overskrift
-      type: string
-    - name: body
-      label: Beskrivelse
-      type: text
-- name: services
-  label: Tjenester
-  type: file
-  path: src/content/services.json
-  format: json
-  fields:
-  - name: eyebrow
-    label: Liten overskrift
-    type: string
-  - name: title
-    label: Overskrift
-    type: string
-  - name: lead
-    label: Ingress
-    type: text
-  - name: linkLabel
-    label: Lenketekst
-    type: string
-  - name: items
-    label: Elementer
-    type: object
-    list: true
+      - { name: eyebrow, label: Liten overskrift, type: string }
+      - { name: title, label: Hovedoverskrift, type: string }
+      - { name: highlight, label: Ord som skal understrekes, type: string, description: Må finnes i hovedoverskriften }
+      - { name: lead, label: Ingress, type: text }
+      - { name: ctaPrimary, label: Primærknapp, type: string }
+      - { name: ctaSecondary, label: Sekundærknapp, type: string }
+      - name: card
+        label: Kort
+        type: object
+        fields:
+          - { name: icon, label: Ikon, type: select, options: { values: [document, shield, percent, chart, mail, phone, pin] } }
+          - { name: title, label: Tittel, type: string }
+          - { name: subtitle, label: Undertittel, type: string }
+          - { name: items, label: Punkter, type: string, list: true }
+
+  - name: intro
+    label: Hvorfor oss
+    type: file
+    path: src/content/intro.json
+    format: json
     fields:
-    - name: title
-      label: Overskrift
-      type: string
-    - name: body
-      label: Beskrivelse
-      type: text
-    - name: detail
-      label: Utvidet beskrivelse
-      type: text
-    - name: image
-      label: Bilde
-      type: image
-    - name: imageAlt
-      label: Alternativ bildetekst
-      type: string
-      description: Beskriv motivet kort for personer som ikke kan se bildet.
-  - name: moreLabel
-    label: Tekst for utvidelse av tjenestekort
-    type: string
-- name: about
-  label: Om Nordic Revisjon
-  type: file
-  path: src/content/about.json
-  format: json
-  fields:
-  - name: eyebrow
-    label: Liten overskrift
-    type: string
-  - name: title
-    label: Overskrift
-    type: string
-  - name: paragraphs
-    label: Avsnitt
-    type: text
-    list: true
-  - name: cta
-    label: Knappetekst
-    type: string
-  - name: image
-    label: Bilde
-    type: image
-  - name: imageAlt
-    label: Alternativ bildetekst
-    type: string
-    description: Beskriv motivet kort for personer som ikke kan se bildet.
-  - name: imageCaption
-    label: Tekst over bildet
-    type: string
-- name: method
-  label: Slik jobber vi
-  type: file
-  path: src/content/method.json
-  format: json
-  fields:
-  - name: eyebrow
-    label: Liten overskrift
-    type: string
-  - name: title
-    label: Overskrift
-    type: string
-  - name: steps
-    label: Prosess-steg
-    type: object
-    list: true
+      - { name: eyebrow, label: Liten overskrift, type: string }
+      - { name: title, label: Overskrift, type: string }
+      - { name: highlight, label: Ord som skal farges, type: string, description: Må finnes i overskriften }
+      - { name: paragraphs, label: Avsnitt, type: text, list: true }
+
+  - name: services
+    label: Tjenester
+    type: file
+    path: src/content/services.json
+    format: json
     fields:
-    - name: title
-      label: Overskrift
-      type: string
-    - name: body
-      label: Beskrivelse
-      type: text
-- name: industries
-  label: Bransjer
-  type: file
-  path: src/content/industries.json
-  format: json
-  fields:
-  - name: eyebrow
-    label: Liten overskrift
-    type: string
-  - name: title
-    label: Overskrift
-    type: string
-  - name: lead
-    label: Ingress
-    type: text
-  - name: items
-    label: Elementer
-    type: string
-    list: true
-  - name: cta
-    label: Knappetekst
-    type: string
-- name: testimonials
-  label: Kundehistorier
-  type: file
-  path: src/content/testimonials.json
-  format: json
-  fields:
-  - name: eyebrow
-    label: Liten overskrift
-    type: string
-  - name: title
-    label: Overskrift
-    type: string
-  - name: lead
-    label: Ingress
-    type: text
-  - name: items
-    label: Elementer
-    type: object
-    list: true
+      - { name: eyebrow, label: Liten overskrift, type: string }
+      - { name: title, label: Overskrift, type: string }
+      - { name: lead, label: Ingress, type: text }
+      - name: items
+        label: Tjenester
+        type: object
+        list: true
+        fields:
+          - { name: icon, label: Ikon, type: select, options: { values: [document, shield, percent, chart, mail, phone, pin] } }
+          - { name: title, label: Tittel, type: string }
+          - { name: body, label: Beskrivelse, type: text }
+
+  - name: method
+    label: Metode
+    type: file
+    path: src/content/method.json
+    format: json
     fields:
-    - name: label
-      label: Etikett
-      type: string
-    - name: title
-      label: Overskrift
-      type: string
-    - name: body
-      label: Beskrivelse
-      type: text
-- name: contact
-  label: Avsluttende kontaktseksjon
-  type: file
-  path: src/content/contact.json
-  format: json
-  fields:
-  - name: eyebrow
-    label: Liten overskrift
-    type: string
-  - name: title
-    label: Overskrift
-    type: string
-  - name: lead
-    label: Ingress
-    type: text
-  - name: cta
-    label: Knappetekst
-    type: string
-  - name: emailSubject
-    label: Emne for møtehenvendelse
-    type: string
-  - name: emailBody
-    label: Forhåndsutfylt e-post
-    type: text
-  - name: note
-    label: Tekst under knappen
-    type: string
-- name: footer
-  label: Bunntekst og juridisk informasjon
-  type: file
-  path: src/content/footer.json
-  format: json
-  fields:
-  - name: tagline
-    label: Slagord
-    type: string
-  - name: contactLabel
-    label: Overskrift for kontakt
-    type: string
-  - name: linksLabel
-    label: Overskrift for lenker
-    type: string
-  - name: socialLabel
-    label: Overskrift for sosiale medier
-    type: string
-  - name: linkedinLabel
-    label: LinkedIn lenketekst
-    type: string
-  - name: linkedinPlaceholder
-    label: Tekst når profiladresse mangler
-    type: string
-  - name: copyright
-    label: Rettighetstekst
-    type: string
-  - name: privacyLabel
-    label: Personvern lenketekst
-    type: string
-  - name: privacyTitle
-    label: Personvern overskrift
-    type: string
-  - name: privacyBody
-    label: Personvern innhold
-    type: text
-  - name: cookiesLabel
-    label: Informasjonskapsler lenketekst
-    type: string
-  - name: cookiesTitle
-    label: Informasjonskapsler overskrift
-    type: string
-  - name: cookiesBody
-    label: Informasjonskapsler innhold
-    type: text
+      - { name: eyebrow, label: Liten overskrift, type: string }
+      - { name: title, label: Overskrift, type: string }
+      - name: steps
+        label: Steg
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Tittel, type: string }
+          - { name: body, label: Beskrivelse, type: text }
+
+  - name: about
+    label: Om oss
+    type: file
+    path: src/content/about.json
+    format: json
+    fields:
+      - { name: eyebrow, label: Liten overskrift, type: string }
+      - { name: title, label: Overskrift, type: string }
+      - { name: paragraphs, label: Avsnitt, type: text, list: true }
+      - name: team
+        label: Team
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Navn, type: string }
+          - { name: role, label: Rolle, type: string }
+          - { name: body, label: Beskrivelse, type: text }
+          - { name: photo, label: Portrett, type: image, description: "Stående format, ca. 4:5" }
+
+  - name: contact
+    label: Kontakt
+    type: file
+    path: src/content/contact.json
+    format: json
+    fields:
+      - { name: eyebrow, label: Liten overskrift, type: string }
+      - { name: title, label: Overskrift, type: string }
+      - { name: lead, label: Ingress, type: text }
+      - { name: visit, label: Besøk, type: string }
+      - name: form
+        label: Skjema
+        type: object
+        fields:
+          - { name: heading, label: Tittel, type: string }
+          - { name: status, label: Statustekst, type: string }
+          - { name: topics, label: Temaer, type: string, list: true }
+          - { name: submit, label: Sendeknapp, type: string }
+          - { name: privacy, label: Personverntekst, type: string }
+          - { name: successTitle, label: Takk-tittel, type: string }
+          - { name: successBody, label: Takk-tekst, type: text }
+
+  - name: footer
+    label: Bunntekst
+    type: file
+    path: src/content/footer.json
+    format: json
+    fields:
+      - { name: tagline, label: Slagord, type: text }
+      - { name: badge, label: Merke, type: string }

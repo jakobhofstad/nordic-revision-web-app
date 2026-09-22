@@ -1,85 +1,72 @@
-import { useEffect, useRef, useState } from 'react'
-import { CONTAINER } from '../theme/sections'
-import { ButtonLink } from '../components/ButtonLink'
+import { useState } from 'react'
+import { NavButton } from '../components/NavButton'
+import { Icon } from '../components/icons'
+import { CONTAINER, SECTIONS } from '../theme/sections'
+import { MobileNav } from './MobileNav'
 import site from '../content/site.json'
 
-export function Header() {
-  const [open, setOpen] = useState(false)
-  const toggle = useRef<HTMLButtonElement>(null)
-  useEffect(() => {
-    if (!open) return
-    const close = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setOpen(false)
-        toggle.current?.focus()
-      }
-    }
-    const resize = () => {
-      if (window.innerWidth >= 1024) setOpen(false)
-    }
-    window.addEventListener('keydown', close)
-    window.addEventListener('resize', resize)
-    return () => {
-      window.removeEventListener('keydown', close)
-      window.removeEventListener('resize', resize)
-    }
-  }, [open])
-  const links = [
-    { label: site.nav.tjenester, href: '#tjenester' },
-    { label: site.nav.bransjer, href: '#bransjer' },
-    { label: site.nav.omOss, href: '#om-oss' },
-    { label: site.nav.kontakt, href: '#kontakt' },
-  ]
+export function Header({ scrolled, go, goTop }: { scrolled: boolean; go: (id: string) => () => void; goTop: () => void }) {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
-    <header className="site-header" id="top">
-      <div className={`${CONTAINER} header-inner`}>
-        <a
-          href="#top"
-          aria-label={`${site.company}, forsiden`}
-          onClick={() => setOpen(false)}
-        >
-          <img
-            className="brand-logo"
-            src="/logos/lockup-indigo.svg"
-            alt={site.company}
-            width="245"
-            height="47"
-          />
-        </a>
-        <nav aria-label="Hovedmeny" className="desktop-nav">
-          {links.map((link) => (
-            <a key={link.href} href={link.href}>
-              {link.label}
-            </a>
-          ))}
-        </nav>
-        <div className="desktop-cta">
-          <ButtonLink href="#kontakt">{site.nav.cta}</ButtonLink>
-        </div>
-        <button
-          ref={toggle}
-          className="menu-toggle"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? 'Lukk meny' : 'Åpne meny'}
-          onClick={() => setOpen(!open)}
-        >
-          <span>{open ? 'Lukk' : 'Meny'}</span>
-          <span aria-hidden="true">{open ? '×' : '☰'}</span>
-        </button>
-      </div>
-      {open && (
-        <nav id="mobile-nav" className="mobile-nav" aria-label="Mobilmeny">
-          {links.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
-              {link.label}
-            </a>
-          ))}
-          <a className="button" href="#kontakt" onClick={() => setOpen(false)}>
-            {site.nav.cta}
+    <>
+      <header
+        className={`glass-nav fixed inset-x-0 top-0 z-[200] transition-shadow duration-200 ${
+          scrolled ? 'shadow-[0_1px_3px_rgba(17,21,35,0.08)]' : 'shadow-none'
+        }`}
+      >
+        <div className={`${CONTAINER} flex h-19 items-center justify-between`}>
+          <a
+            href="#top"
+            onClick={(e) => {
+              e.preventDefault()
+              setMenuOpen(false)
+              goTop()
+            }}
+            className="inline-flex items-center no-underline"
+          >
+            <img src="/logos/lockup-indigo.svg" alt={site.company} className="block h-7 w-auto md:h-8" />
           </a>
-        </nav>
-      )}
-    </header>
+
+          {/* Desktop nav */}
+          <nav className="hidden items-center gap-1 lg:flex">
+            <NavButton label={site.nav.tjenester} color="#444340" onClick={go(SECTIONS.tjenester)} />
+            <NavButton label={site.nav.metode} color="#444340" onClick={go(SECTIONS.metode)} />
+            <NavButton label={site.nav.omOss} color="#444340" onClick={go(SECTIONS.omOss)} />
+            <button
+              onClick={go(SECTIONS.kontakt)}
+              className="ml-3 cursor-pointer rounded-md bg-indigo px-[18px] py-[9px] font-sans text-[15px] font-medium text-white transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              {site.nav.cta}
+            </button>
+          </nav>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? 'Lukk meny' : 'Åpne meny'}
+            aria-expanded={menuOpen}
+            className="relative z-[210] -mr-2 cursor-pointer p-2 text-indigo lg:hidden"
+          >
+            <Icon size={26} stroke="currentColor" strokeWidth={1.9}>
+              {menuOpen ? (
+                <>
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="7" x2="21" y2="7" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="17" x2="21" y2="17" />
+                </>
+              )}
+            </Icon>
+          </button>
+        </div>
+      </header>
+
+      <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} go={go} />
+    </>
   )
 }

@@ -5,12 +5,6 @@ import type { ReactNode } from 'react'
    <Icon> to set size and stroke. Keys must match the select options in
    .pages.yml. */
 export const GLYPHS = {
-  people: (
-    <>
-      <circle cx="9" cy="7" r="4" />
-      <path d="M2 22v-3a7 7 0 0 1 14 0v3M17 4a4 4 0 0 1 0 8M19 15a6 6 0 0 1 3 5v2" />
-    </>
-  ),
   document: (
     <>
       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -59,5 +53,4 @@ export const GLYPHS = {
 export type GlyphName = keyof typeof GLYPHS
 
 // Unknown key (typo in the CMS) falls back to a neutral glyph instead of crashing the page.
-export const glyph = (name: string): ReactNode =>
-  GLYPHS[name as GlyphName] ?? GLYPHS.document
+export const glyph = (name: string): ReactNode => GLYPHS[name as GlyphName] ?? GLYPHS.document

@@ -1,18 +1,22 @@
 {
-  "eyebrow": "VÅR PROSESS",
-  "title": "Slik jobber vi",
+  "eyebrow": "Metode",
+  "title": "Slik jobber vi gjennom året",
   "steps": [
     {
-      "title": "Kartlegging",
-      "body": "Vi blir kjent med virksomheten, behovene og risikoområdene dine."
+      "title": "Bli kjent",
+      "body": "Vi setter oss inn i bransjen, driften og menneskene bak tallene før vi planlegger revisjonen."
+    },
+    {
+      "title": "Planlegging og risiko",
+      "body": "Vi identifiserer hvor risikoen er størst og retter innsatsen dit det betyr mest for regnskapet."
     },
     {
       "title": "Gjennomføring",
-      "body": "Vi gjennomfører arbeidet strukturert, med tett dialog underveis."
+      "body": "Vi tester, kontrollerer og dokumenterer effektivt, og holder deg løpende oppdatert underveis."
     },
     {
-      "title": "Oppfølging",
-      "body": "Du får innsikt og tydelige anbefalinger for veien videre."
+      "title": "Rapport og dialog",
+      "body": "Du får beretning, klare anbefalinger og en samtale om hva tallene betyr for veien videre."
     }
   ]
 }
