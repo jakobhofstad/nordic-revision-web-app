@@ -8,18 +8,15 @@
   "team": [
     {
       "name": "Christopher Anthony",
-      "role": "Partner · Daglig leder · Statsautorisert revisor",
-      "body": "Leder revisjonen for selskaper i vekst og styrer kvaliteten i alle oppdrag."
+      "role": "Partner · Daglig leder · Statsautorisert revisor"
     },
     {
       "name": "Inge Stikholmen",
-      "role": "Partner · Revisor",
-      "body": "Spesialist på internkontroll og risiko, med bakgrunn fra større revisjonshus."
+      "role": "Partner · Revisor"
     },
     {
       "name": "Rune Dypaune",
-      "role": "Partner · Revisor",
-      "body": "Din daglige kontakt gjennom revisjonsåret og bindeledd inn i teamet."
+      "role": "Partner · Revisor"
     }
   ]
 }
