@@ -4,6 +4,9 @@ import { TeamCard } from '../components/TeamCard'
 import { SECTIONS } from '../theme/sections'
 import about from '../content/about.json'
 
+// ponytail: Pages CMS drops empty fields on save, so body and photo may be missing
+const team: { name: string; role: string; body?: string; photo?: string }[] = about.team
+
 export function About() {
   return (
     <Section id={SECTIONS.omOss} tone="warm-grey" borderTop>
@@ -24,7 +27,7 @@ export function About() {
       </Grid>
 
       <Grid cols={{ base: 1, md: 3 }} gap="portraits">
-        {about.team.map((m) => (
+        {team.map((m) => (
           <TeamCard key={m.name} name={m.name} role={m.role} body={m.body} photo={m.photo} />
         ))}
       </Grid>
